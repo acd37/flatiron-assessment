@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 import './App.css'
 import BlogsContainer from './Containers/BlogsContainer'
 import Navbar from './Components/Navbar'
-import {BlogContext} from "./Context/BlogContext";
+import { BlogContext } from "./Context/BlogContext";
 import FlatironSchoolLogo from './Assets/fs_logo.png';
 
 const useStyles = makeStyles(() => ({
@@ -25,19 +25,15 @@ function App() {
     useEffect(async () => {
       const resp = await fetch('http://localhost:5000/blogs')
       const payload = await resp.json();
-
       dispatch({ type: "LOAD_BLOGS", payload })
-
-    })
+    }, [])
 
     return (
-      
-    <BlogContext.Provider value={blogs}>
-      <Navbar />
-      <img className={classes.logo} src={FlatironSchoolLogo} alt="Flatiron School Logo" />
-      <Route path="/" render={()=> <BlogsContainer blogs={blogs}/>} />
-    </BlogContext.Provider>
-
+      <>
+        <Navbar />
+        <img className={classes.logo} src={FlatironSchoolLogo} alt="Flatiron School Logo" />
+        <Route path="/" render={()=> <BlogsContainer />} />
+      </>
   )
   }
 

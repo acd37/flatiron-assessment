@@ -13,9 +13,3 @@ export const BlogContextProvider = ({ children }) => {
 
   return <BlogContext.Provider value={{ blogs, dispatch}}>{children}</BlogContext.Provider>;
 }
-
-// const BlogContext = React.createContext({ 
-//   blogs: []
-// });
-
-// export default BlogContext;

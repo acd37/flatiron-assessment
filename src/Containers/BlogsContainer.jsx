@@ -3,11 +3,11 @@ import { Route, Switch } from 'react-router-dom'
 import BlogsList from '../Components/BlogsList'
 import SavedBlogsList from '../Components/SavedBlogsList'
 
-const BlogsContainer = ({blogs}) => {
+const BlogsContainer = () => {
     return (
                 <Switch>
-                    <Route path="/blogs/saved" render={()=> <SavedBlogsList blogs={blogs}/>} />
-                    <Route path="/" render={()=> <BlogsList blogs={blogs}/>} />
+                    <Route path="/blogs/saved" render={()=> <SavedBlogsList/>} />
+                    <Route path="/" render={()=> <BlogsList />} />
                 </Switch>
 
             )

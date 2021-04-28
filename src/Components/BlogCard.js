@@ -1,13 +1,16 @@
-import { makeStyles } from '@material-ui/core'
+import React, { useContext } from 'react';
+import { makeStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card'
-import CardActionArea from '@material-ui/core/CardActionArea'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import { withRouter } from 'react-router-dom';
+import {BlogContext} from "../Context/BlogContext";
+
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -27,6 +30,8 @@ const useStyles = makeStyles(() => ({
 
 function BlogCard({ blogObject, saveBlog, history }) {
   const classes = useStyles()
+  const { blogs, dispatch } = useContext(BlogContext);
+
   function localClickHandler() {    
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -61,7 +66,7 @@ function BlogCard({ blogObject, saveBlog, history }) {
         fetch('/blogs')
           .then(response => response.json())
           .then(data => {
-            console.log('data', data)
+            dispatch({ type: "LOAD_BLOGS", payload: data })
           })
       )
       .catch(error => console.log('error', error));

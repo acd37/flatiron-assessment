@@ -31,8 +31,8 @@ function SavedBlogsList({ blogCardClickHandler }) {
 
     function createBlogCards() {
 
-        if (blogs) {
-            return blogs.filter(blog => blog.favorite === true).filter(blog => blog.title.toLowerCase().includes(searchTerm.toLowerCase())).map(blogObject => (
+        if (blogs.blogs) {
+            return blogs.blogs.filter(blog => blog.favorite === true).filter(blog => blog.title.toLowerCase().includes(searchTerm.toLowerCase())).map(blogObject => (
                 <BlogCard key={blogObject.id} blogObject={blogObject} clickHandler={blogCardClickHandler} />
                 ))
         }
