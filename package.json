@@ -28,6 +28,7 @@
     "eject": "react-scripts eject",
     "server": "npm i json-server && json-server -w db.json"
   },
+  "proxy": "http://localhost:5000",
   "browserslist": {
     "production": [
       ">0.2%",

@@ -8,7 +8,7 @@ class BlogsContainer extends React.Component{
     render(){
         return (
                 <Switch>
-                    <Route path="/blogs/saved" component={SavedBlogsList} />
+                    <Route path="/blogs/saved" render={()=> <SavedBlogsList blogs={this.props.blogs}/>} />
                     <Route path="/" render={()=> <BlogsList blogs={this.props.blogs}/>} />
                 </Switch>
 

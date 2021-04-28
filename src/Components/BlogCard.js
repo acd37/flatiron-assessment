@@ -27,8 +27,41 @@ const useStyles = makeStyles(() => ({
 
 function BlogCard({ blogObject, saveBlog, history }) {
   const classes = useStyles()
-  function localClickHandler() {
-    history.push("/blogs/saved")
+  function localClickHandler() {    
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    // allow for toggling save vs. unsave
+    let newValue = blogObject.favorite ? false : true;
+
+    // create the new object
+    const savedObject = {
+      ...blogObject,
+      favorite: newValue
+    }
+
+    // stringify
+    const raw = JSON.stringify(savedObject);
+
+    // create request options
+    const requestOptions = {
+      method: 'PUT',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    // make PUT request
+    fetch(`/blogs/${blogObject.id}`, requestOptions)
+      .then(
+        response => response.text()
+        
+        // @TODO update state
+
+        )
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+
   }
   return (
     <Grid item xs={3}>
@@ -49,7 +82,9 @@ function BlogCard({ blogObject, saveBlog, history }) {
         </CardContent>
         <CardActions className={classes.buttonsArea}>
           <Button size="small" color="primary" onClick={localClickHandler}>
-            Save
+            {
+              !blogObject.favorite ? "Save" : "Unsave"
+            }
         </Button>
           <Button className={classes.button} component="a" href={blogObject.url} target="_blank" size="small" color="primary">
             Visit

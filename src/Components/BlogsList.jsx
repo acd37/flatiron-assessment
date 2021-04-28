@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    paddingTop: 50
+    padding: 50
   },
   searchBox: {
     width: 400,
@@ -31,9 +31,7 @@ function BlogsList({ blogs, blogCardClickHandler }) {
       <BlogCard key={blogObject.id} blogObject={blogObject} clickHandler={blogCardClickHandler} />
     ))
   }
-
-  console.log(blogs)
-
+  
   return (
 
     <>
