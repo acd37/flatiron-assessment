@@ -6,7 +6,7 @@
       "image": "https://miro.medium.com/max/1750/1*9Puy65N_VsGzWLuZOY4Z2w.jpeg",
       "title": "40 Tips that will change your coding skills forever",
       "url": "https://medium.com/swlh/40-tips-that-will-change-your-coding-skills-forever-bf9d6b936ccc?source=grid_home---------0---------------------bc0bc212_ac15_40d1_b1d5_e7eb2388cc0b-------12",
-      "favorite": true
+      "favorite": false
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "image": "https://miro.medium.com/max/1400/0*Z-etKTDpx97ljkxz",
       "title": "Use VSCode like a Senior Developer",
       "url": "https://levelup.gitconnected.com/use-vscode-like-a-senior-developer-9b54054c452a?source=grid_home---------2---------------------bc0bc212_ac15_40d1_b1d5_e7eb2388cc0b-------12",
-      "favorite": true
+      "favorite": false
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "image": "https://miro.medium.com/max/1400/1*gY0_nL_cQOItA8P18fJDMw.png",
       "title": "Optimizing React Component Performance",
       "url": "https://levelup.gitconnected.com/react-react-native-optimizing-react-component-performance-16a82efaa4af?source=collection_home---4------6-----------------------",
-      "favorite": true
+      "favorite": false
     },
     {
       "id": 6,
