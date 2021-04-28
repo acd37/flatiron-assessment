@@ -14,11 +14,11 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    padding: 50
+    paddingTop: 50
   },
   searchBox: {
     width: 400,
-    maxWidth: '90%'
+    maxWidth: '100%'
   }
 }))
 
