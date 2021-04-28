@@ -1,25 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import { Route } from 'react-router-dom'
 import './App.css'
 import BlogsContainer from './Containers/BlogsContainer'
 import Navbar from './Components/Navbar'
+import {BlogContext} from "./Context/BlogContext";
+
 
 function App() {  
-    const [blogs, setBlogs] = useState([]);
+
+    const { blogs, dispatch } = useContext(BlogContext);
 
     useEffect(async () => {
-        // For demonstration purposes, we mock an API call.
-        const resp = await fetch('http://localhost:5000/blogs')
-        const payload = await resp.json();
+      const resp = await fetch('http://localhost:5000/blogs')
+      const payload = await resp.json();
 
-        setBlogs(payload);
-  }, []);
+      dispatch({ type: "LOAD_BLOGS", payload })
+
+    })
 
     return (
-    <>
+      
+    <BlogContext.Provider value={blogs}>
       <Navbar />
       <Route path="/" render={()=> <BlogsContainer blogs={blogs}/>} />
-    </>
+    </BlogContext.Provider>
 
   )
   }

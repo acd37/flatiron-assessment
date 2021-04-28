@@ -53,13 +53,17 @@ function BlogCard({ blogObject, saveBlog, history }) {
 
     // make PUT request
     fetch(`/blogs/${blogObject.id}`, requestOptions)
+      .then(response => response.text())
+      .then(result => console.log('result', result))
       .then(
-        response => response.text()
-        
-        // @TODO update state
 
-        )
-      .then(result => console.log(result))
+        // new fetch to reload blogs
+        fetch('/blogs')
+          .then(response => response.json())
+          .then(data => {
+            console.log('data', data)
+          })
+      )
       .catch(error => console.log('error', error));
 
   }

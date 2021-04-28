@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, {useState, useContext} from 'react';
 import { makeStyles } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid';
 import BlogCard from '../Components/BlogCard'
 import TextField from '@material-ui/core/TextField';
+import {BlogContext} from '../Context/BlogContext';
+
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -21,15 +23,20 @@ const useStyles = makeStyles(() => ({
     }
   }))
 
-function SavedBlogsList({ blogs, blogCardClickHandler }) {
+function SavedBlogsList({ blogCardClickHandler }) {
     const classes = useStyles()
 
     const [searchTerm, setSearchTerm] = useState('');
+    const { blogs } = useContext(BlogContext);
 
     function createBlogCards() {
-        return blogs.filter(blog => blog.favorite === true).filter(blog => blog.title.toLowerCase().includes(searchTerm.toLowerCase())).map(blogObject => (
-        <BlogCard key={blogObject.id} blogObject={blogObject} clickHandler={blogCardClickHandler} />
-        ))
+
+        if (blogs) {
+            return blogs.filter(blog => blog.favorite === true).filter(blog => blog.title.toLowerCase().includes(searchTerm.toLowerCase())).map(blogObject => (
+                <BlogCard key={blogObject.id} blogObject={blogObject} clickHandler={blogCardClickHandler} />
+                ))
+        }
+        
     }
 
     return (
