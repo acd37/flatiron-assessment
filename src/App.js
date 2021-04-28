@@ -26,15 +26,13 @@ function App() {
       const resp = await fetch('http://localhost:5000/blogs')
       const payload = await resp.json();
       dispatch({ type: "LOAD_BLOGS", payload })
-    }, [])
+    }, []);
 
     return (
       <>
         <Navbar />
         <img className={classes.logo} src={FlatironSchoolLogo} alt="Flatiron School Logo" />
         <Route path="/" render={()=> <BlogsContainer />} />
-
-        
       </>
   )
   }

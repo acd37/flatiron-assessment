@@ -67,6 +67,7 @@ function BlogCard({ blogObject, saveBlog, history }) {
           .then(response => response.json())
           .then(data => {
             dispatch({ type: "LOAD_BLOGS", payload: data })
+            dispatch({ type: "NOTIFY_SUCCESS", payload: true })
           })
       )
       .catch(error => console.log('error', error));
