@@ -42,13 +42,12 @@ function Navbar({history}) {
                         aria-haspopup="true"
                         color="inherit"
                     >
-                        {
-                            location.pathname === "/blogs/"
-                            ? <Button onClick={() => history.push("/blogs/saved") } color="inherit">Saved Blogs</Button>
-                            : <Button onClick={() => history.push("/blogs/") } color="inherit">All Blogs</Button>
-                        }
-                    
-                    </IconButton>
+                    </IconButton> 
+                    {
+                        location.pathname === "/blogs/"
+                        ? <Button onClick={() => history.push("/blogs/saved") } color="inherit">Saved Blogs</Button>
+                        : <Button onClick={() => history.push("/blogs/") } color="inherit">All Blogs</Button>
+                    }
             </Toolbar>
         </AppBar>
     )

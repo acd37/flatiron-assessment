@@ -30,8 +30,6 @@ function BlogsList() {
 
   function createBlogCards () {
 
-    console.log('blogs', blogs)
-
     if (blogs.blogs) {
       return blogs.blogs.filter(blog => blog.title.toLowerCase().includes(searchTerm.toLowerCase())).map(blogObject => (
         <BlogCard key={blogObject.id} blogObject={blogObject}  />

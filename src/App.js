@@ -33,6 +33,8 @@ function App() {
         <Navbar />
         <img className={classes.logo} src={FlatironSchoolLogo} alt="Flatiron School Logo" />
         <Route path="/" render={()=> <BlogsContainer />} />
+
+        
       </>
   )
   }

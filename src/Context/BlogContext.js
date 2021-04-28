@@ -5,9 +5,9 @@ export const BlogContext = createContext();
 
 export const BlogContextProvider = ({ children }) => {
 
-  const [blogs, dispatch] = useReducer(BlogReducer, { blogs: [] }, () => {
+  const [blogs, dispatch] = useReducer(BlogReducer, { blogs: [], success: false }, () => {
 
-    return { blogs: [] };
+    return { blogs: [], success: false };
 
   })
 
